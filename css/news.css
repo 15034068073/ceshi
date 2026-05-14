@@ -190,11 +190,20 @@
 }
 
 .news-thumb {
+  display: block;
   border-radius: 8px;
   overflow: hidden;
   min-height: 104px;
   background-size: cover;
   background-position: center;
+}
+
+.news-title-link {
+  color: #102f67;
+}
+
+.news-title-link:hover {
+  color: #0a4aa5;
 }
 
 .news-thumb.n1 {
@@ -231,7 +240,6 @@
 
 .news-item h3 {
   margin: 0 0 6px;
-  color: #102f67;
   font-size: 20px;
 }
 
