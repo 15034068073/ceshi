@@ -6,7 +6,7 @@
     <title>鑫福控股（山东）集团有限公司</title>
     <meta
       name="description"
-      content="企业官网首页模板，采用公共样式与页面样式分离，便于扩展子页面。"
+      content="企业官网首页本地模板，支持动效、全宽自适应布局与单页滚动导航。"
     />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/home.css" />
@@ -14,7 +14,7 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="./index.html">
+        <a class="brand" href="#home">
           <div class="brand-mark">鑫</div>
           <div class="brand-text">
             鑫福控股（山东）集团有限公司
@@ -23,19 +23,18 @@
         </a>
         <nav class="main-nav" aria-label="主导航">
           <ul>
-            <li><a class="is-active" href="./index.html">首页</a></li>
-            <li><a href="./pages/about.html">集团介绍</a></li>
-            <li><a href="./pages/business.html">业务板块</a></li>
-            <li><a href="./pages/news.html">新闻中心</a></li>
-            <li><a href="./pages/join.html">加入我们</a></li>
-            <li><a href="./pages/contact.html">联系我们</a></li>
+            <li><a class="is-active nav-link" href="#home">首页</a></li>
+            <li><a class="nav-link" href="#about">集团简介</a></li>
+            <li><a class="nav-link" href="#business">业务板块</a></li>
+            <li><a class="nav-link" href="#news">新闻公告</a></li>
+            <li><a class="nav-link" href="#contact">联系我们</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="hero" aria-label="轮播图">
+      <section id="home" class="hero" aria-label="轮播图">
         <div
           class="hero-slide is-active"
           style="
@@ -63,7 +62,7 @@
             <p class="hero-kicker">匠鑫独运 · 福汇天下</p>
             <h1>成为受人尊敬的百年企业</h1>
             <p>聚焦产业投资、城市建设与现代服务，持续为客户和社会创造长期价值。</p>
-            <a class="btn-primary" href="./pages/about.html">了解更多</a>
+            <a class="btn-primary" href="#about">了解更多</a>
           </div>
         </div>
 
@@ -76,9 +75,9 @@
         </div>
       </section>
 
-      <section class="section">
+      <section id="about" class="section about-shell">
         <div class="container about-grid">
-          <article class="card about-card">
+          <article class="card about-card reveal">
             <h2>集团简介 <span>ABOUT</span></h2>
             <p>
               鑫福控股集团成立于 2019 年，以石油化工与工程建设为核心，同时布局新能源、现代服务与产业孵化等方向，形成协同发展的业务矩阵。
@@ -86,60 +85,60 @@
             <p>
               集团坚持“稳中求进、价值共创”的经营理念，持续优化产业结构，提升运营能力和品牌影响力。
             </p>
-            <a class="btn-primary" href="./pages/about.html">了解更多</a>
+            <a class="btn-primary" href="#business">查看业务</a>
 
             <div class="stats">
               <div class="stat-item">
-                <strong>30+</strong>
+                <strong data-counter="30" data-suffix="+">0</strong>
                 <span>旗下公司</span>
               </div>
               <div class="stat-item">
-                <strong>1000+</strong>
+                <strong data-counter="1000" data-suffix="+">0</strong>
                 <span>员工人数</span>
               </div>
               <div class="stat-item">
-                <strong>50+</strong>
+                <strong data-counter="50" data-suffix="+">0</strong>
                 <span>业务覆盖城市</span>
               </div>
               <div class="stat-item">
-                <strong>2019</strong>
+                <strong data-counter="2019">0</strong>
                 <span>集团成立时间</span>
               </div>
             </div>
           </article>
 
-          <aside class="card about-photo">
+          <aside class="card about-photo reveal">
             <div aria-label="集团办公大楼图片"></div>
           </aside>
         </div>
       </section>
 
-      <section class="section">
+      <section id="business" class="section business-shell">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header reveal">
             <h2 class="section-title">业务板块 <span>BUSINESS</span></h2>
             <p class="section-subtitle">多元产业布局，创造长期价值</p>
           </div>
           <div class="business-list">
-            <article class="card business-card oil">
+            <article class="card business-card oil reveal">
               <div class="content">
                 <h3>石油化工</h3>
                 <p>覆盖供应链管理、仓储物流与一体化运营。</p>
               </div>
             </article>
-            <article class="card business-card culture">
+            <article class="card business-card culture reveal">
               <div class="content">
                 <h3>文化传媒</h3>
                 <p>品牌传播与内容策划，打造多场景传播能力。</p>
               </div>
             </article>
-            <article class="card business-card energy">
+            <article class="card business-card energy reveal">
               <div class="content">
                 <h3>能源开发</h3>
                 <p>聚焦新能源项目投资与技术应用推广。</p>
               </div>
             </article>
-            <article class="card business-card bridge">
+            <article class="card business-card bridge reveal">
               <div class="content">
                 <h3>基建工程</h3>
                 <p>深耕工程管理与施工服务，保障项目落地。</p>
@@ -149,14 +148,14 @@
         </div>
       </section>
 
-      <section class="section">
+      <section id="news" class="section news-shell">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header reveal">
             <h2 class="section-title">新闻公告 <span>NEWS</span></h2>
             <p class="section-subtitle">集团动态与业务进展</p>
           </div>
           <div class="news-list">
-            <article class="card news-item">
+            <article class="card news-item reveal">
               <div class="news-thumb"></div>
               <div>
                 <h4>鑫福控股年度工作总结大会圆满召开</h4>
@@ -164,7 +163,7 @@
               </div>
               <span class="news-date">2026-05-20</span>
             </article>
-            <article class="card news-item">
+            <article class="card news-item reveal">
               <div class="news-thumb"></div>
               <div>
                 <h4>中化石油战略合作项目正式签约</h4>
@@ -172,7 +171,7 @@
               </div>
               <span class="news-date">2026-05-15</span>
             </article>
-            <article class="card news-item">
+            <article class="card news-item reveal">
               <div class="news-thumb"></div>
               <div>
                 <h4>集团与合作伙伴共建区域产业服务平台</h4>
@@ -183,34 +182,42 @@
           </div>
         </div>
       </section>
+
+      <section class="section cta-shell">
+        <div class="container cta reveal">
+          <h2>携手合作，共创长期价值</h2>
+          <p>聚焦战略协同、产业赋能与持续创新，欢迎与我们建立多维合作关系。</p>
+          <a class="btn-primary" href="#contact">立即联系</a>
+        </div>
+      </section>
     </main>
 
-    <footer class="site-footer">
+    <footer id="contact" class="site-footer">
       <div class="container footer-top">
-        <section class="footer-col footer-brand">
+        <section class="footer-col footer-brand reveal">
           <h4>鑫福控股（山东）集团有限公司</h4>
           <p>匠鑫独运 · 福汇天下</p>
           <p>地址：山东省济南市高新区某某路 66 号</p>
           <p>电话：0537-3000000</p>
           <p>邮箱：xinfu@example.com</p>
         </section>
-        <section class="footer-col">
-          <h4>集团介绍</h4>
-          <a href="./pages/about.html">集团概况</a>
-          <a href="./pages/about.html">企业文化</a>
-          <a href="./pages/about.html">发展历程</a>
+        <section class="footer-col reveal">
+          <h4>快速入口</h4>
+          <a href="#home">首页</a>
+          <a href="#about">集团简介</a>
+          <a href="#business">业务板块</a>
         </section>
-        <section class="footer-col">
-          <h4>业务板块</h4>
-          <a href="./pages/business.html">石油化工</a>
-          <a href="./pages/business.html">文化传媒</a>
-          <a href="./pages/business.html">能源开发</a>
+        <section class="footer-col reveal">
+          <h4>业务方向</h4>
+          <a href="#business">石油化工</a>
+          <a href="#business">文化传媒</a>
+          <a href="#business">能源开发</a>
         </section>
-        <section class="footer-col">
-          <h4>新闻中心</h4>
-          <a href="./pages/news.html">集团动态</a>
-          <a href="./pages/news.html">媒体报道</a>
-          <a href="./pages/contact.html">联系我们</a>
+        <section class="footer-col reveal">
+          <h4>商务合作</h4>
+          <a href="#news">集团动态</a>
+          <a href="#news">媒体报道</a>
+          <a href="#contact">联系我们</a>
         </section>
       </div>
       <div class="footer-bottom">© 2019-2026 鑫福控股（山东）集团有限公司 版权所有</div>
