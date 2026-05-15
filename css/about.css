@@ -1,0 +1,303 @@
+.about-hero {
+  position: relative;
+  color: #fff;
+  min-height: clamp(260px, 40vw, 340px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(4, 19, 49, 0.92), rgba(8, 35, 82, 0.72)),
+    url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1800&q=80")
+      center / cover no-repeat;
+}
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  right: -100px;
+  bottom: -80px;
+  width: min(38vw, 520px);
+  height: min(34vw, 460px);
+  background:
+    linear-gradient(180deg, rgba(8, 35, 82, 0.28), rgba(8, 35, 82, 0.58)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80")
+      center / cover no-repeat;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  border-radius: 18px 0 0 0;
+  opacity: 0.96;
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 24px 0;
+}
+
+.about-hero h1 {
+  margin: 0;
+  font-size: clamp(34px, 4.2vw, 56px);
+  letter-spacing: 2px;
+}
+
+.about-hero p {
+  margin: 8px 0 0;
+  opacity: 0.88;
+  letter-spacing: 1.5px;
+}
+
+.breadcrumb {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: 0.78;
+}
+
+.about-main {
+  background: #fff;
+}
+
+.about-profile {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(16px, 2.8vw, 32px);
+}
+
+.about-copy {
+  padding: clamp(20px, 3vw, 36px);
+}
+
+.about-copy h2,
+.about-section-title {
+  margin: 0 0 12px;
+  font-size: clamp(26px, 3vw, 34px);
+  position: relative;
+  display: inline-block;
+}
+
+.about-copy h2::after,
+.about-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+.about-copy p {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+}
+
+.about-media {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.video-panel {
+  min-height: 280px;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(12, 33, 73, 0.2), rgba(12, 33, 73, 0.58)),
+    url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1500&q=80")
+      center / cover no-repeat;
+}
+
+.play-button {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--primary);
+  font-size: 34px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(9, 25, 54, 0.3);
+  transition: transform 0.25s ease;
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.profile-stats {
+  background: linear-gradient(90deg, #081f4c, #0b2d66);
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.profile-stats li {
+  padding: 16px 10px 18px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.profile-stats li:last-child {
+  border-right: none;
+}
+
+.profile-stats strong {
+  display: block;
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.profile-stats span {
+  display: block;
+  font-size: 13px;
+  opacity: 0.84;
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.culture-item {
+  padding: 20px 14px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.culture-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.12);
+}
+
+.culture-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.culture-item h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.culture-item p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.about-business-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.about-business-card {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  min-height: 196px;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-business-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 34, 0.12), rgba(4, 12, 34, 0.84));
+}
+
+.about-business-card .content {
+  position: relative;
+  z-index: 1;
+  padding: 18px 16px;
+}
+
+.about-business-card h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.about-business-card p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.about-business-card a {
+  font-size: 13px;
+  color: #fff;
+}
+
+.about-business-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(11, 22, 43, 0.2);
+}
+
+.about-business-card.oil {
+  background: url("https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80")
+    center / cover no-repeat;
+}
+
+.about-business-card.media {
+  background: url("https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=900&q=80")
+    center / cover no-repeat;
+}
+
+.about-business-card.energy {
+  background: url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80")
+    center / cover no-repeat;
+}
+
+.about-business-card.bridge {
+  background: url("https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&w=900&q=80")
+    center / cover no-repeat;
+}
+
+@media (max-width: 1150px) {
+  .culture-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-business-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .about-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero::after {
+    width: 42vw;
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 720px) {
+  .about-hero {
+    min-height: 220px;
+  }
+
+  .about-hero::after {
+    display: none;
+  }
+
+  .profile-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .culture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-business-grid {
+    grid-template-columns: 1fr;
+  }
+}

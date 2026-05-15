@@ -1,0 +1,244 @@
+.detail-hero {
+  position: relative;
+  min-height: clamp(250px, 35vw, 330px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(4, 19, 49, 0.94), rgba(6, 35, 82, 0.66)),
+    url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1800&q=80")
+      center / cover no-repeat;
+}
+
+.detail-hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: min(52vw, 840px);
+  height: 100%;
+  background: linear-gradient(90deg, rgba(4, 19, 49, 0), rgba(4, 19, 49, 0.3));
+}
+
+.detail-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.detail-hero h1 {
+  margin: 0;
+  font-size: clamp(36px, 4.4vw, 58px);
+  letter-spacing: 2px;
+}
+
+.detail-hero p {
+  margin: 12px 0 0;
+  max-width: 36em;
+  opacity: 0.9;
+}
+
+.breadcrumb {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.news-detail-main {
+  background: #fff;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.detail-sidebar {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.related-panel {
+  padding: 16px;
+}
+
+.related-panel h2 {
+  margin: 0 0 12px;
+  font-size: 26px;
+  color: #102f67;
+}
+
+.related-item {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.related-item:hover,
+.related-item.is-active {
+  background: #f3f6fc;
+}
+
+.related-thumb {
+  border-radius: 8px;
+  min-height: 66px;
+  background-size: cover;
+  background-position: center;
+}
+
+.related-thumb.r1 {
+  background-image: url("https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=700&q=80");
+}
+
+.related-thumb.r2 {
+  background-image: url("https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=700&q=80");
+}
+
+.related-thumb.r3 {
+  background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=700&q=80");
+}
+
+.related-thumb.r4 {
+  background-image: url("https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=80");
+}
+
+.related-thumb.r5 {
+  background-image: url("https://images.unsplash.com/photo-1591117207239-788bf8de6c3b?auto=format&fit=crop&w=700&q=80");
+}
+
+.related-item h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #1f3458;
+  line-height: 1.35;
+}
+
+.related-item p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #77839b;
+}
+
+.back-list {
+  margin-top: 12px;
+}
+
+.detail-article {
+  padding: 20px;
+}
+
+.detail-article h2 {
+  margin: 0 0 10px;
+  color: #102f67;
+  font-size: clamp(30px, 3.3vw, 42px);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0 12px;
+  border-bottom: 1px solid #e6ecf7;
+  color: #6f7f98;
+  font-size: 13px;
+}
+
+.meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.share-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.share-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d8dfeb;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.share-btn.is-active {
+  border-color: #0c2a5f;
+  box-shadow: 0 0 0 2px rgba(12, 42, 95, 0.12);
+}
+
+.detail-cover {
+  margin-top: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: clamp(240px, 36vw, 460px);
+  background:
+    linear-gradient(180deg, rgba(8, 32, 70, 0.16), rgba(8, 32, 70, 0.42)),
+    url("https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80")
+      center / cover no-repeat;
+}
+
+.detail-content {
+  margin-top: 14px;
+  color: #4b5b74;
+  font-size: 16px;
+}
+
+.detail-content p {
+  margin: 0 0 14px;
+  text-indent: 2em;
+}
+
+.prev-next {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pn-card {
+  padding: 12px;
+}
+
+.pn-card span {
+  display: block;
+  color: #7a879d;
+  font-size: 12px;
+}
+
+.pn-card h4 {
+  margin: 4px 0;
+  color: #1d3459;
+  font-size: 16px;
+}
+
+.pn-card p {
+  margin: 0;
+  color: #7a879d;
+  font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 900px) {
+  .prev-next {
+    grid-template-columns: 1fr;
+  }
+}

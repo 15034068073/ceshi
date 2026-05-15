@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新闻中心 - 鑫福控股（山东）集团有限公司</title>
+    <meta
+      name="description"
+      content="鑫福控股新闻中心页面，包含新闻分类、搜索筛选与新闻列表分页。"
+    />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/news.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html">
+          <div class="brand-mark">鑫</div>
+          <div class="brand-text">
+            鑫福控股（山东）集团有限公司
+            <small>XINFU HOLDING GROUP CO., LTD.</small>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <ul>
+            <li><a href="./index.html">首页</a></li>
+            <li><a href="./about.html">集团介绍</a></li>
+            <li><a href="./business.html">业务板块</a></li>
+            <li><a class="is-active" href="./news.html">新闻中心</a></li>
+            <li><a href="./contact.html">加入我们</a></li>
+            <li><a href="./contact.html">联系我们</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="news-main">
+      <section class="news-hero">
+        <div class="container news-hero-inner">
+          <h1>新闻中心</h1>
+          <p>聚焦集团最新动态，传递品牌声音，与您共同见证鑫福每一步成长。</p>
+          <div class="breadcrumb">首页 &gt; 新闻中心</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container news-layout">
+          <aside class="news-sidebar reveal">
+            <section class="card news-menu">
+              <a class="is-active" href="#" data-news-category="all">📰 集团动态</a>
+              <a href="#" data-news-category="media">📺 媒体报道</a>
+              <a href="#" data-news-category="industry">📈 行业资讯</a>
+              <a href="#" data-news-category="investor">💹 投资者关系</a>
+              <a href="#" data-news-category="notice">📢 公告通知</a>
+            </section>
+
+            <section class="card news-contact">
+              <h3>新闻咨询</h3>
+              <p>如需采访或了解更多信息，请与我们联系。</p>
+              <div class="contact-line">📞 0537-XXXXXX</div>
+              <div class="contact-line">✉️ xinfujtuan@163.com</div>
+              <a class="btn-primary" href="./contact.html">联系我们</a>
+            </section>
+          </aside>
+
+          <div class="news-content">
+            <div class="news-head reveal">
+              <div class="news-tabs">
+                <button class="news-tab is-active" type="button" data-news-category="all">全部</button>
+                <button class="news-tab" type="button" data-news-category="group">集团动态</button>
+                <button class="news-tab" type="button" data-news-category="media">媒体报道</button>
+                <button class="news-tab" type="button" data-news-category="industry">行业资讯</button>
+                <button class="news-tab" type="button" data-news-category="investor">投资者关系</button>
+                <button class="news-tab" type="button" data-news-category="notice">公告通知</button>
+              </div>
+              <div class="search-box">
+                <input id="news-search" type="text" placeholder="请输入关键词" />
+                <button type="button" aria-label="搜索">🔍</button>
+              </div>
+            </div>
+
+            <section class="news-list" id="news-list">
+              <article class="card news-item reveal" data-category="group" data-title="鑫福集团2024年度工作总结大会圆满召开">
+                <a class="news-thumb n1" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3><a class="news-title-link" href="./news-detail.html">鑫福集团2024年度工作总结大会圆满召开</a></h3>
+                  <p>
+                    1月15日，鑫福集团2024年度工作总结大会在集团总部隆重召开，系统复盘年度成果并发布重点工作规划。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>01-15</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="investor" data-title="鑫福控股与中化石油达成战略合作">
+                <a class="news-thumb n2" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3><a class="news-title-link" href="./news-detail.html">鑫福控股与中化石油达成战略合作</a></h3>
+                  <p>
+                    近日，鑫福控股与中化石油有限公司正式签署战略合作协议，双方将在能源供应链、加油站网络建设等方面深化协同。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>12-28</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="group" data-title="鑫福集团荣获2024年度社会责任企业称号">
+                <a class="news-thumb n3" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3>
+                    <a class="news-title-link" href="./news-detail.html">鑫福集团荣获“2024年度社会责任企业”称号</a>
+                  </h3>
+                  <p>
+                    凭借在环保、公益、员工关爱等方面的突出表现，鑫福集团荣获由山东省企业联合会颁发的社会责任企业荣誉。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>12-20</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="industry" data-title="山东石福提新苑重站全面投入运营">
+                <a class="news-thumb n4" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3><a class="news-title-link" href="./news-detail.html">山东石福提新苑重站全面投入运营</a></h3>
+                  <p>
+                    12月18日，山东石福提新苑重站项目正式投入运营，标志着集团在新能源领域再添重要一步，进一步提升区域服务能力。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>12-18</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="media" data-title="鑫福集团与中国电建签署战略协议">
+                <a class="news-thumb n5" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3>
+                    <a class="news-title-link" href="./news-detail.html">鑫福集团与中国电建签署战略协议，共拓基建新未来</a>
+                  </h3>
+                  <p>
+                    鑫福集团与中国电建围绕产业链重点合作协议，双方将在基础设施建设、智慧城市、绿色能源等方面开展深度合作。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>12-10</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="notice" data-title="关于春节假期营业安排的公告">
+                <a class="news-thumb n6" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3><a class="news-title-link" href="./news-detail.html">关于春节假期营业安排的公告</a></h3>
+                  <p>
+                    根据集团统一安排，春节期间各业务板块营业时间将进行阶段性调整，请合作伙伴与客户提前做好业务安排。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>02-02</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="media" data-title="鑫福集团获省级媒体专题报道">
+                <a class="news-thumb n7" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3><a class="news-title-link" href="./news-detail.html">鑫福集团创新发展模式获省级媒体专题报道</a></h3>
+                  <p>
+                    集团在产融协同、产业升级及数字化管理方面的实践成果获得多家省级主流媒体集中报道，品牌影响力持续提升。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>10-30</span></div>
+              </article>
+
+              <article class="card news-item reveal" data-category="investor" data-title="关于举办年度投资者沟通会的通知">
+                <a class="news-thumb n8" href="./news-detail.html" aria-label="查看新闻详情"></a>
+                <div>
+                  <h3><a class="news-title-link" href="./news-detail.html">关于举办年度投资者沟通会的通知</a></h3>
+                  <p>
+                    为加强与投资者沟通，集团将于本月举办年度沟通会，围绕经营情况、战略布局和未来规划进行专题交流。
+                  </p>
+                </div>
+                <div class="news-date"><strong>2024</strong><span>09-25</span></div>
+              </article>
+            </section>
+
+            <div class="news-empty card" id="news-empty" hidden>未找到符合条件的新闻，请调整筛选条件。</div>
+            <div class="news-pagination" id="news-pagination"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <section class="footer-col footer-brand reveal">
+          <h4>鑫福控股（山东）集团有限公司</h4>
+          <p>匠鑫独运 · 福汇天下</p>
+          <p>地址：山东省济南市高新区某某路 66 号</p>
+          <p>电话：0537-3000000</p>
+          <p>邮箱：xinfu@example.com</p>
+        </section>
+        <section class="footer-col reveal">
+          <h4>集团介绍</h4>
+          <a href="./about.html">集团概况</a>
+          <a href="./about.html">企业文化</a>
+          <a href="./about.html">发展历程</a>
+        </section>
+        <section class="footer-col reveal">
+          <h4>业务板块</h4>
+          <a href="./business.html">石油化工</a>
+          <a href="./media.html">文化传媒</a>
+          <a href="./energy.html">能源开发</a>
+          <a href="./construction.html">基建工程</a>
+        </section>
+        <section class="footer-col reveal">
+          <h4>新闻中心</h4>
+          <a href="./news.html">集团动态</a>
+          <a href="./news.html">媒体报道</a>
+          <a href="./news.html">公告通知</a>
+        </section>
+      </div>
+      <div class="footer-bottom">© 2019-2026 鑫福控股（山东）集团有限公司 版权所有</div>
+    </footer>
+
+    <script src="./js/news.js"></script>
+  </body>
+</html>
