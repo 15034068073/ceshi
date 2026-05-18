@@ -251,7 +251,8 @@ def show_main():
 
     # 右侧日志面板
     log_title_frame = tk.Frame(right_frame, bg="white")
-    log_title_frame.pack(fill=tk.X)
+    # 与日志内容区域保持同样的左右边距，确保宽度一致
+    log_title_frame.pack(fill=tk.X, padx=5)
 
     def on_log_click(event):
         print("你点击了运行日志！")
