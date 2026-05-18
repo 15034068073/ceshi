@@ -544,6 +544,85 @@ def show_login():
     login_window.mainloop()
 
 
+def _flatten_account_names(raw_data):
+    """把不同结构的账号信息展开为字符串列表。"""
+    result = []
+    if raw_data is None:
+        return result
+
+    if isinstance(raw_data, str):
+        parts = [raw_data]
+        for sep in [",", "，", ";", "；", "\n", "\r", "\t", "|"]:
+            next_parts = []
+            for item in parts:
+                next_parts.extend(item.split(sep))
+            parts = next_parts
+        result.extend([item.strip() for item in parts if item and item.strip()])
+        return result
+
+    if isinstance(raw_data, (list, tuple, set)):
+        for item in raw_data:
+            result.extend(_flatten_account_names(item))
+        return result
+
+    if isinstance(raw_data, dict):
+        for key in ["account", "name", "username", "nickname", "phone", "email", "id"]:
+            if key in raw_data:
+                result.extend(_flatten_account_names(raw_data.get(key)))
+        for key in ["accounts", "bind_accounts", "bound_accounts", "items", "list", "data"]:
+            if key in raw_data:
+                result.extend(_flatten_account_names(raw_data.get(key)))
+        return result
+
+    result.append(str(raw_data).strip())
+    return [item for item in result if item]
+
+
+def get_task_bound_accounts(task_key):
+    """从多个潜在来源读取某个任务的已绑定账号。"""
+    candidates = []
+
+    task_info = getattr(GlobalVar, "task_info", {})
+    if isinstance(task_info, dict):
+        task_data = task_info.get(task_key, {})
+        if isinstance(task_data, dict):
+            for key in ["bound_accounts", "bind_accounts", "accounts", "account_names", "account"]:
+                if key in task_data:
+                    candidates.append(task_data.get(key))
+
+    for attr_name in ["bind_accounts", "bound_accounts", "ai_bind_accounts", "account_bindings"]:
+        source = getattr(GlobalVar, attr_name, None)
+        if isinstance(source, dict) and task_key in source:
+            candidates.append(source.get(task_key))
+
+    getter_names = [f"get_{task_key}_accounts", f"get_{task_key}_account"]
+    for getter_name in getter_names:
+        getter = getattr(ai_bind, getter_name, None)
+        if callable(getter):
+            try:
+                candidates.append(getter())
+            except Exception as e:
+                GlobalVar.log.error(f"读取{task_key}绑定账号失败: {str(e)}")
+
+    names = []
+    seen = set()
+    for candidate in candidates:
+        for name in _flatten_account_names(candidate):
+            if name and name not in seen:
+                names.append(name)
+                seen.add(name)
+    return names
+
+
+def show_bound_accounts(task_key, title):
+    accounts = get_task_bound_accounts(task_key)
+    if not accounts:
+        message = "未查询到已绑定账号"
+    else:
+        message = "\n".join([f"{idx + 1}. {name}" for idx, name in enumerate(accounts)])
+    messagebox.showinfo(f"{title} - 已绑定账号", message)
+
+
 def create_task_card(parent, title, task_key):
     """创建任务数据卡片（返回标签引用以便刷新）"""
     card = tk.Frame(parent, bg="white", relief=tk.RIDGE, bd=1)
@@ -556,7 +635,18 @@ def create_task_card(parent, title, task_key):
     title_frame.pack(side=tk.LEFT, fill=tk.Y)
     title_frame.pack_propagate(False)
     title_label = tk.Label(title_frame, text=title, bg="white", font=("Microsoft YaHei", 12, "bold"))
-    title_label.pack(side=tk.LEFT)
+    title_label.pack(anchor="w")
+
+    bind_label = tk.Label(
+        title_frame,
+        text="已绑定",
+        bg="white",
+        fg="#4361EE",
+        cursor="hand2",
+        font=("Microsoft YaHei", 9),
+    )
+    bind_label.pack(anchor="w", pady=(4, 0))
+    bind_label.bind("<Button-1>", lambda _event, key=task_key, t=title: show_bound_accounts(key, t))
 
     pending_frame = tk.Frame(main_frame, bg="white")
     pending_frame.pack(side=tk.LEFT, expand=True, fill=tk.X)
