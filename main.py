@@ -219,12 +219,15 @@ def show_main():
     # 主内容区域：左侧任务与CPU（1/2），右侧日志（1/2）
     main_frame = ttk.Frame(main_window, style="Main.TFrame")
     main_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+    main_frame.grid_columnconfigure(0, weight=1, uniform="half")
+    main_frame.grid_columnconfigure(1, weight=1, uniform="half")
+    main_frame.grid_rowconfigure(0, weight=1)
 
     left_frame = ttk.Frame(main_frame)
-    left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 8))
+    left_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
 
     right_frame = ttk.Frame(main_frame)
-    right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=(8, 0))
+    right_frame.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
 
     # 左侧上部：任务卡片两列（左3右2）
     task_grid_frame = ttk.Frame(left_frame)
