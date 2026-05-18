@@ -231,7 +231,8 @@ def show_main():
 
     # 左侧上部：任务卡片两列（左3右2）
     task_grid_frame = ttk.Frame(left_frame)
-    task_grid_frame.pack(fill=tk.BOTH, expand=True)
+    # 任务区只占内容所需高度，避免把 CPU 卡片往下挤出空白
+    task_grid_frame.pack(fill=tk.X, expand=False, anchor="n")
 
     left_col = ttk.Frame(task_grid_frame)
     left_col.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 4))
