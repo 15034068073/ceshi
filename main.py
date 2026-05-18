@@ -578,7 +578,7 @@ def _flatten_account_names(raw_data):
     return [item for item in result if item]
 
 
-def get_task_bound_accounts(task_key):
+def _collect_task_bound_accounts(task_key):
     """从多个潜在来源读取某个任务的已绑定账号。"""
     candidates = []
 
@@ -614,13 +614,86 @@ def get_task_bound_accounts(task_key):
     return names
 
 
-def show_bound_accounts(task_key, title):
-    accounts = get_task_bound_accounts(task_key)
-    if not accounts:
-        message = "未查询到已绑定账号"
+def get_task_bound_accounts(task_key, title=None):
+    """弹出账号窗口并显示该任务的多个已绑定账户。"""
+    accounts = _collect_task_bound_accounts(task_key)
+    task_title = title or task_key
+
+    popup = tk.Toplevel(main_window if "main_window" in globals() else None)
+    popup.title(f"{task_title} - 已绑定账号")
+    popup.geometry("420x320")
+    popup.resizable(False, False)
+    popup.configure(bg="#f5f7fa")
+
+    tk.Label(
+        popup,
+        text=f"{task_title} 已绑定账号",
+        bg="#f5f7fa",
+        font=("Microsoft YaHei", 12, "bold"),
+    ).pack(pady=(15, 8))
+
+    container = tk.Frame(popup, bg="white", relief=tk.RIDGE, bd=1)
+    container.pack(fill=tk.BOTH, expand=True, padx=15, pady=5)
+
+    list_text = tk.Text(
+        container,
+        bg="white",
+        font=("Microsoft YaHei", 10),
+        relief=tk.FLAT,
+        wrap=tk.WORD,
+    )
+    list_text.pack(fill=tk.BOTH, expand=True, padx=8, pady=8)
+
+    if accounts:
+        account_lines = [f"{idx + 1}. {name}" for idx, name in enumerate(accounts)]
+        list_text.insert("1.0", "\n".join(account_lines))
     else:
-        message = "\n".join([f"{idx + 1}. {name}" for idx, name in enumerate(accounts)])
-    messagebox.showinfo(f"{title} - 已绑定账号", message)
+        list_text.insert("1.0", "未查询到已绑定账号")
+    list_text.config(state=tk.DISABLED)
+
+    def bind_current_task():
+        bind_func = getattr(ai_bind, f"bind_{task_key}", None)
+        if not callable(bind_func):
+            messagebox.showwarning("提示", f"暂未配置 {task_title} 的绑定方法")
+            return
+        popup.destroy()
+        try:
+            bind_func()
+        except Exception as e:
+            GlobalVar.log.error(f"{task_key} 绑定失败: {str(e)}")
+            messagebox.showerror("错误", f"绑定失败：{str(e)}")
+
+    btn_frame = tk.Frame(popup, bg="#f5f7fa")
+    btn_frame.pack(fill=tk.X, pady=(5, 12))
+
+    tk.Button(
+        btn_frame,
+        text="去绑定账号",
+        bg="#4361EE",
+        fg="white",
+        font=("Microsoft YaHei", 10),
+        width=12,
+        command=bind_current_task,
+    ).pack(side=tk.LEFT, padx=(85, 8))
+
+    tk.Button(
+        btn_frame,
+        text="关闭",
+        bg="#9AA0A6",
+        fg="white",
+        font=("Microsoft YaHei", 10),
+        width=10,
+        command=popup.destroy,
+    ).pack(side=tk.LEFT, padx=8)
+
+    popup.transient(main_window if "main_window" in globals() else None)
+    popup.grab_set()
+    return accounts
+
+
+def show_bound_accounts(task_key, title):
+    # 兼容历史调用：统一走新的绑定账号窗口
+    return get_task_bound_accounts(task_key, title)
 
 
 def create_task_card(parent, title, task_key):
