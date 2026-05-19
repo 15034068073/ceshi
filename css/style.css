@@ -586,8 +586,8 @@ section[id] {
 }
 
 .advantage-bottom {
-  margin: 12px auto 0;
-  width: min(900px, 88%);
+  margin: 12px 0 0 auto;
+  width: min(920px, calc(100% - 230px));
   background: #bf9567;
   border-radius: 34px 34px 0 0;
   padding: 16px 26px 18px;
@@ -830,7 +830,9 @@ section[id] {
   }
 
   .advantage-bottom {
-    width: 100%;
+    width: min(760px, calc(100% - 120px));
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 
@@ -935,6 +937,7 @@ section[id] {
   }
 
   .advantage-bottom {
+    width: 100%;
     border-radius: 22px 22px 0 0;
     padding: 14px 16px;
   }
