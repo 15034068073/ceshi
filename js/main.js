@@ -42,6 +42,27 @@ $(function () {
     },
   });
 
+  new Swiper(".advantage-swiper", {
+    speed: 700,
+    loop: false,
+    slidesPerView: 4,
+    slidesPerGroup: 4,
+    spaceBetween: 20,
+    pagination: {
+      el: ".advantage-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".adv-next",
+      prevEl: ".adv-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1.1, slidesPerGroup: 1, spaceBetween: 12 },
+      640: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 16 },
+      1024: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 20 },
+    },
+  });
+
   $(".menu-toggle").on("click", function () {
     $(".site-nav").toggleClass("is-open");
   });
