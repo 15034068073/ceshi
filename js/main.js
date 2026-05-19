@@ -87,12 +87,62 @@ $(function () {
     }
   });
 
+  function getActiveNewsPanel() {
+    return $(".news-panel.is-active");
+  }
+
+  function renderNewsPagination(total, activeIndex) {
+    var dots = "";
+    for (var i = 0; i < total; i += 1) {
+      dots +=
+        '<button class="news-dot' +
+        (i === activeIndex ? " is-active" : "") +
+        '" type="button" data-index="' +
+        i +
+        '" aria-label="第' +
+        (i + 1) +
+        '页"></button>';
+    }
+    $(".news-pagination").html(dots);
+  }
+
+  function showNewsSlide($panel, targetIndex) {
+    var $slides = $panel.find(".news-slide");
+    var total = $slides.length;
+    if (!total) return;
+
+    var safeIndex = ((targetIndex % total) + total) % total;
+    $panel.attr("data-slide-index", safeIndex);
+    $slides.removeClass("is-active").eq(safeIndex).addClass("is-active");
+    renderNewsPagination(total, safeIndex);
+  }
+
   $(".news-tabs li").on("click", function () {
     var target = $(this).data("target");
     $(".news-tabs li").removeClass("is-active");
     $(this).addClass("is-active");
     $(".news-panel").removeClass("is-active");
-    $("#" + target).addClass("is-active");
+    var $targetPanel = $("#" + target);
+    $targetPanel.addClass("is-active");
+    showNewsSlide($targetPanel, 0);
+  });
+
+  $(".news-prev").on("click", function () {
+    var $panel = getActiveNewsPanel();
+    var currentIndex = parseInt($panel.attr("data-slide-index"), 10) || 0;
+    showNewsSlide($panel, currentIndex - 1);
+  });
+
+  $(".news-next").on("click", function () {
+    var $panel = getActiveNewsPanel();
+    var currentIndex = parseInt($panel.attr("data-slide-index"), 10) || 0;
+    showNewsSlide($panel, currentIndex + 1);
+  });
+
+  $(document).on("click", ".news-dot", function () {
+    var $panel = getActiveNewsPanel();
+    var targetIndex = parseInt($(this).data("index"), 10) || 0;
+    showNewsSlide($panel, targetIndex);
   });
 
   var $counter = $(".counter");
@@ -149,4 +199,5 @@ $(function () {
 
   animateCounter();
   heroParallax();
+  showNewsSlide(getActiveNewsPanel(), 0);
 });
