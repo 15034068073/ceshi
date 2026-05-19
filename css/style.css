@@ -224,14 +224,41 @@ section[id] {
   position: relative;
   min-height: 94vh;
   padding-top: 80px;
+  overflow: hidden;
 }
 
 .hero-swiper {
+  position: relative;
   width: 100%;
   min-height: calc(94vh - 80px);
 }
 
+.hero-swiper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 16px;
+  background: #fff;
+  z-index: 3;
+}
+
+.hero-swiper::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -190px;
+  width: 145%;
+  height: 300px;
+  border-radius: 50%;
+  background: #f3f3f3;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
 .hero-slide {
+  position: relative;
   min-height: calc(94vh - 80px);
   display: flex;
   align-items: center;
@@ -273,11 +300,19 @@ section[id] {
 
 .hero-pagination {
   position: absolute;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  z-index: 2;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 52px !important;
+  transform: translateX(-50%) !important;
+  z-index: 4;
   width: auto !important;
+  text-align: center;
+}
+
+.hero-swiper > .hero-pagination.swiper-pagination-bullets {
+  left: 50% !important;
+  width: auto !important;
+  transform: translateX(-50%) !important;
 }
 
 .hero-pagination.swiper-pagination-bullets {
@@ -748,6 +783,16 @@ section[id] {
   .hero-swiper,
   .hero-slide {
     min-height: calc(80vh - 80px);
+  }
+
+  .hero-swiper::after {
+    width: 170%;
+    height: 240px;
+    bottom: -150px;
+  }
+
+  .hero-pagination {
+    bottom: 42px !important;
   }
 
   .hero h1 {
