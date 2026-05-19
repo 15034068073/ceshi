@@ -6,6 +6,23 @@ $(function () {
     easing: "ease-out-cubic",
   });
 
+  new Swiper(".hero-swiper", {
+    loop: true,
+    speed: 900,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    autoplay: {
+      delay: 3600,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".hero-pagination",
+      clickable: true,
+    },
+  });
+
   new Swiper(".business-swiper", {
     loop: true,
     speed: 700,
@@ -86,8 +103,11 @@ $(function () {
 
   function heroParallax() {
     var scrolled = $(window).scrollTop();
-    $(".hero").css("background-position", "center " + scrolled * 0.2 + "px");
-    $(".hero-content").css("transform", "translateY(" + scrolled * 0.1 + "px)");
+    $(".hero-swiper .swiper-slide .hero-content").css("transform", "translateY(0)");
+    $(".hero-swiper .swiper-slide-active .hero-content").css(
+      "transform",
+      "translateY(" + scrolled * 0.1 + "px)"
+    );
   }
 
   $(window).on("scroll", function () {

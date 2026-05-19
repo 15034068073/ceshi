@@ -223,11 +223,21 @@ section[id] {
 .hero {
   position: relative;
   min-height: 94vh;
+  padding-top: 80px;
+}
+
+.hero-swiper {
+  width: 100%;
+  min-height: calc(94vh - 80px);
+}
+
+.hero-slide {
+  min-height: calc(94vh - 80px);
   display: flex;
   align-items: center;
-  padding-top: 80px;
-  background: url("https://images.unsplash.com/photo-1586511925558-a4c6376fe65f?auto=format&fit=crop&w=1900&q=80")
-    center / cover no-repeat fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero-mask {
@@ -261,24 +271,31 @@ section[id] {
   font-weight: 600;
 }
 
-.hero-indicator {
+.hero-pagination {
   position: absolute;
   left: 50%;
   bottom: 24px;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
   z-index: 2;
+  width: auto !important;
 }
 
-.hero-indicator span {
+.hero-pagination.swiper-pagination-bullets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-pagination .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+  transition: all 0.25s ease;
 }
 
-.hero-indicator .is-active {
+.hero-pagination .swiper-pagination-bullet-active {
   width: 24px;
   border-radius: 999px;
   background: var(--gold);
@@ -662,7 +679,11 @@ section[id] {
 
   .hero {
     min-height: 80vh;
-    background-attachment: scroll;
+  }
+
+  .hero-swiper,
+  .hero-slide {
+    min-height: calc(80vh - 80px);
   }
 
   .hero h1 {
