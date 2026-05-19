@@ -78,6 +78,10 @@ $(function () {
   var counterStarted = false;
   function animateCounter() {
     if (counterStarted) return;
+    if (!$counter.length) {
+      counterStarted = true;
+      return;
+    }
     var triggerTop = $counter.offset().top - window.innerHeight;
     if ($(window).scrollTop() > triggerTop) {
       counterStarted = true;
